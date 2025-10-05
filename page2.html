@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>PAYROLL PROGRAM</title>
+    <style>
+        body {
+            background-image: url(https://wallpaperaccess.com/full/20457670.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        h1 {
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: #000 2px 2px 4px;
+            margin-bottom: 12px;
+            position: absolute;
+            mix-blend-mode: overlay;
+        }
+        .row { margin-bottom: 12px; font-size: 1.5rem; }
+        .row label { font-weight: bold; width: 160px; display: inline-block; }
+        .value { font-weight: bold; }
+        .deductions-table { width: 100%; margin-top: 18px; font-size: 1.3rem; }
+        .deductions-table td { padding: 4px 8px; }
+        .total-row td { font-weight: bold; border-top: 2px solid #000; }
+        .netpay-row { margin-top: 22px; font-size: 2rem; font-weight: bold; color: #0033ff; }
+        button { margin-top: 24px; font-size: 1rem; padding: 8px 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PAYROLL PROGRAM</h1>
+        <div class="row">
+            <label>ID:</label>
+            <span class="value" id="disp-id"></span>
+        </div>
+        <div class="row">
+            <label>NAME:</label>
+            <span class="value" id="disp-name"></span>
+        </div>
+        <div class="row">
+            <label>POSITION:</label>
+            <span class="value" id="disp-position"></span>
+        </div>
+        <div class="row">
+            <label>RATE:</label>
+            <span class="value" id="disp-rate"></span>
+        </div>
+        <div class="row">
+            <label>DAYS:</label>
+            <span class="value" id="disp-days"></span>
+        </div>
+        <div class="row">
+            <label>GROSS PAY:</label>
+            <span class="value" id="disp-gross"></span>
+        </div>
+
+        <div class="deductions-title"><b>DEDUCTIONS</b></div>
+        <table class="deductions-table">
+            <tr>
+                <td>SSS (5%):</td>
+                <td style="text-align:right;" id="disp-sss"></td>
+            </tr>
+            <tr>
+                <td>PAG-IBIG (3%):</td>
+                <td style="text-align:right;" id="disp-pagibig"></td>
+            </tr>
+            <tr>
+                <td>PHILHEALTH (2%):</td>
+                <td style="text-align:right;" id="disp-philhealth"></td>
+            </tr>
+            <tr>
+                <td>TAX (5%):</td>
+                <td style="text-align:right;" id="disp-tax"></td>
+            </tr>
+            <tr class="total-row">
+                <td>TOTAL DEDUCTION:</td>
+                <td style="text-align:right;" id="disp-totaldeduct"></td>
+            </tr>
+        </table>
+
+        <div class="netpay-row">
+            NET PAY:&nbsp;&nbsp;<span id="disp-netpay"></span>
+        </div>
+
+        <button onclick="window.print()">Print Payroll</button>
+    </div>
+
+    <script>
+        // Format numbers as peso currency
+        const formatPeso = num => 
+            `₱${Number(num || 0).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+        // Retrieve payroll data
+        const data = JSON.parse(localStorage.getItem('payrollData') || '{}');
+
+        // Redirect if no valid data
+        if (!data || !data.idnumber) {
+            alert('No payroll data found. Please fill out the form first.');
+            window.location.href = 'index.html'; 
+        } else {
+            // Display the data
+            document.getElementById('disp-id').textContent = data.idnumber;
+
+            document.getElementById('disp-name').textContent = 
+                [data.lastname, data.firstname, data.middlename].filter(Boolean).join(', ');
+
+            document.getElementById('disp-position').textContent = data.position;
+
+            document.getElementById('disp-rate').textContent = formatPeso(data.rate);
+            
+            document.getElementById('disp-days').textContent = data.workdays;
+
+            document.getElementById('disp-gross').textContent = formatPeso(data.grossPay);
+
+            document.getElementById('disp-sss').textContent = formatPeso(data.sss);
+
+            document.getElementById('disp-pagibig').textContent = formatPeso(data.pagibig);
+
+            document.getElementById('disp-philhealth').textContent = formatPeso(data.philhealth);
+            
+            document.getElementById('disp-tax').textContent = formatPeso(data.tax);
+
+            document.getElementById('disp-totaldeduct').textContent = formatPeso(data.totalDeduction);
+
+            document.getElementById('disp-netpay').textContent = formatPeso(data.netPay);
+
+            // Clear data so it doesn’t persist
+            localStorage.removeItem('payrollData');
+        }
+    </script>
+</body>
+</html>

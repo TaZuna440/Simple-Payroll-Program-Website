@@ -1,0 +1,114 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    align-self: flex-start;
+    margin: 8px 0 2px 30px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    padding: 8px;
+    margin-top: 10px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+body {
+    background: #555;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    background: #fff;
+    border: 5px solid #000;
+    border-radius: 35px;
+    width: 900px;
+    margin: 20px auto;
+    padding: 30px 40px 40px 40px;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+    color: #000;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.row label {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    width: 180px;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.row .value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+    margin-left: 20px;
+}
+.deductions-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.deductions-table {
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    width: 500px;
+}
+.deductions-table td {
+    padding: 4px 12px;
+}
+.total-row td {
+    font-weight: bold;
+    font-size: 2rem;
+    padding-top: 10px;
+}
+.netpay-row {
+    margin-top: 40px;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
