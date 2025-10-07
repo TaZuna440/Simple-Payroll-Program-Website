@@ -48,3 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'page2.html';
     });
 });
+
+// Popup functionality
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('IdPopup').style.display = 'flex';
+    }, 3000); // Show popup after 3 seconds
+};
+
+//Close Popup
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.querySelector('.close-btn').onclick = function() {
+        document.getElementById('IdPopup').style.display = 'none';
+    };
+});
