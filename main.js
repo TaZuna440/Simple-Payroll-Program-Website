@@ -49,16 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Popup functionality
+// Popup Timer
 window.onload = function() {
     setTimeout(function() {
         document.getElementById('IdPopup').style.display = 'flex';
-    }, 3000); // Show popup after 3 seconds
+    }, 2000); // Show popup after 2 seconds
 };
 
 //Close Popup
-document.querySelector('.close-btn').addEventListener('click', function() {
-    document.querySelector('.close-btn').onclick = function() {
-        document.getElementById('IdPopup').style.display = 'none';
-    };
-});
+function displayPopup() {
+    document.getElementById('IdPopup').style.display = 'none';
+}
+
+function closePopup() {
+    document.querySelector('.close-btn').onclick = displayPopup();
+}
+
+document.querySelector('.close-btn').addEventListener('click', closePopup);
