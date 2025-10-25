@@ -2,34 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/278086703_357240063084905_1854191818738559220_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGl9j3_vBdfmc0gHC-Rt1BVdRIK1jvTyN11EgrWO9PI3dRHk7b9FLCtWDBTScWqlaAE4wriayXNTbJmTMG-3TyY&_nc_ohc=IB_e4lwd8igQ7kNvwGVC8xx&_nc_oc=Adl4zQeVuE4rPgWGvPqqGTk-nxnny92F1-aYfMTsodY99hZVQdxqvMpf6NitIceoNM0&_nc_zt=23&_nc_ht=scontent.fmnl17-1.fna&_nc_gid=_jMJJ9j8sWf0GK8PXpteEA&oh=00_AfddRbDZIzkNMNkLpGYS8mn7m5SdRoBhFjcCB-Hvw3hP3w&oe=68EAD4D2"/>
     <title>PAYROLL PROGRAM</title>
     <style>
+        /* Background styling */
         body {
             background-image: url(https://i.pinimg.com/originals/8d/9e/ce/8d9ecece041e3f7e4a15b1b106b5f2ba.gif);
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
+            margin: 0;
+            padding: 16px;
         }
+
+        /* Page title */
         h1 {
             font-size: 3rem;
             color: rgb(0, 194, 58);
             text-shadow: #000 2px 2px 4px;
             margin-bottom: 12px;
         }
+
+        /* Row styling for payroll details */
         .row { 
             margin-bottom: 12px; 
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
         }
+
         .row label { 
             font-weight: bold; 
-            width: 160px; display: 
-            inline-block; 
+            width: 160px;
+            display: inline-block;
+            margin-right: 8px;
         }
+
         .value { 
-            font-weight: bold; 
+            font-weight: bold;
+            flex: 1;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .row {
+                font-size: 1.3rem;
+            }
+
+            .row label {
+                width: 120px;
+            }
         }
         .deductions-table { 
             width: 100%; 

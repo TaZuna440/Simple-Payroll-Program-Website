@@ -29,6 +29,7 @@
             animation: zoomIn 2s ease;
         }
 
+        /* Responsive grid layout for the form */
         .payroll-form {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -39,6 +40,29 @@
 
         .payroll-form .form-group {
             display: contents;
+        }
+
+        /* Media query for screens smaller than 768px */
+        @media screen and (max-width: 768px) {
+            .payroll-form {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .payroll-form label {
+                text-align: left;
+                font-size: 1.8rem;
+            }
+
+            .payroll-form input {
+                font-size: 1.6rem;
+            }
+
+            .payroll-form button[type="submit"] {
+                grid-column: 1;
+                width: 100%;
+                margin-top: 24px;
+            }
         }
 
         .payroll-form label {
@@ -236,9 +260,9 @@
     <div id="IdPopup" class="popup">
         <div class="popup-content">
             <span class="close-btn">&times;</span>
-            <h2>Special Offer!</h2>
-            <p>Get 30% off your first purchase. Limited time only!</p>
-            <div class="pic-ni-nomyer"><img src="data:image/jpeg;base64,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" alt="pic ni nomyer"></div>
+            <h2>Thank You For Using Our Website</h2>
+            <p>We would like to appreciate you for entering this site</p>
+            <div class="pic-ni-nomyer"><img src="./images/thankYou.jpg" alt="pic ni nomyer"></div>
         </div>     
     </div>
 </body>
